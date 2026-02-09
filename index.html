@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Akhila ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #ffdde1, #ee9ca7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.container {
+    z-index: 2;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: 900;
+    color: #b0003a;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+button {
+    font-size: 20px;
+    padding: 12px 28px;
+    border-radius: 30px;
+    border: none;
+}
+
+#yesBtn {
+    background: #ff2f92;
+    color: white;
+}
+
+#noBtn {
+    background: gray;
+    color: white;
+    position: relative;
+}
+
+/* Celebration Screen */
+#celebration {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 1s ease-in;
+}
+
+.photo {
+    width: 220px;
+    border-radius: 20px;
+    margin: 15px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.son {
+    width: 200px;
+    border-radius: 20px;
+    margin-top: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.graffiti {
+    font-size: 24px;
+    margin-top: 10px;
+    animation: float 4s infinite;
+}
+
+.heart {
+    position: absolute;
+    font-size: 22px;
+    animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(100vh); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-10vh); opacity: 0; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- FIRST SCREEN -->
+<div class="container" id="question">
+    <h1>AKHILA, ARE YOU LOOKING FOR SOMETHING?</h1>
+    <div class="buttons">
+        <button id="yesBtn">YES</button>
+        <button id="noBtn">NO</button>
+    </div>
+</div>
+
+<!-- CELEBRATION SCREEN -->
+<div class="container" id="celebration">
+    <h1>HAPPY WEDDING ANNIVERSARY 💖</h1>
+
+    <div class="graffiti">Forever You & Me ❤️✨</div>
+
+    <img src="akhila.jpg" class="photo" alt="Akhila">
+
+    <div class="graffiti">Our Greatest Blessing 💙</div>
+
+    <img src="son.jpg" class="son" alt="Dhruv">
+
+    <div class="graffiti">
+        Dhruv 👶<br>
+        Born on April 24, 2025<br>
+        A Love That Became a Family ❤️
+    </div>
+
+    <div class="graffiti">🎉 💃 👶 ❤️ ✨ 🎊</div>
+</div>
+
+<script>
+// NO button escape
+const noBtn = document.getElementById("noBtn");
+noBtn.addEventListener("mouseover", moveNo);
+noBtn.addEventListener("touchstart", moveNo);
+
+function moveNo() {
+    noBtn.style.transform =
+      `translate(${Math.random()*200-100}px, ${Math.random()*200-100}px)`;
+}
+
+// YES click
+document.getElementById("yesBtn").addEventListener("click", () => {
+    document.getElementById("question").style.display = "none";
+    document.getElementById("celebration").style.display = "flex";
+});
+
+// Floating hearts
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+}, 400);
+</script>
+
+</body>
+</html>
